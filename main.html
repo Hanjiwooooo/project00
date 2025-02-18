@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기획자 포트폴리오</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">기획자 포트폴리오</h2>
+        <div class="info-box">
+            <h4>개인 정보</h4>
+            <p><strong>이름:</strong> <span id="name"></span></p>
+            <p><strong>나이:</strong> <span id="age"></span></p>
+            <p><strong>학력:</strong> <span id="education"></span></p>
+        </div>
+        <div id="careerList" class="mt-4">
+            <h4>경력 사항</h4>
+            <ul class="list-group" id="careerItems"></ul>
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            var personalInfo = {
+                name: "홍길동",
+                age: "30세",
+                education: "서울대학교 컴퓨터공학과 졸업"
+            };
+            
+            $("#name").text(personalInfo.name);
+            $("#age").text(personalInfo.age);
+            $("#education").text(personalInfo.education);
+            
+            var careerData = [
+                { year: "2020-2021", company: "ABC Corp", role: "UX 기획자" },
+                { year: "2021-2023", company: "XYZ Ltd", role: "서비스 기획자" },
+                { year: "2023-현재", company: "MNO Inc", role: "프로덕트 매니저" }
+            ];
+            
+            careerData.forEach(function(career) {
+                $("#careerItems").append(
+                    `<li class="list-group-item"><strong>${career.year}</strong> - ${career.company} (${career.role})</li>`
+                );
+            });
+        });
+    </script>
+</body>
+</html>
